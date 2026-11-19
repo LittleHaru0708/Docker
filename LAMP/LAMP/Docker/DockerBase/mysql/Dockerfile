@@ -1,3 +1,4 @@
+
 FROM mysql:8.0.36-debian
 
 RUN rm -f /etc/apt/sources.list.d/mysql.list \
@@ -12,4 +13,5 @@ ENV LC_ALL=ja_JP.UTF-8
 ENV TZ=Asia/Tokyo
 
 COPY ./my.cnf /etc/mysql/conf.d/my.cnf
-COPY ./initialize.sql /root/
+
+COPY ./initialize.sql /docker-entrypoint-initdb.d/01_initialize.sql
